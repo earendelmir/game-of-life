@@ -11,11 +11,11 @@
 // uncomment the following line if you are compiling this on a Windows machine
 // #define WINDOWS
 #ifdef WINDOWS
-#include <windows.h>
-#define CLEAR_SCREEN "cls"
+  #include <windows.h>
+  #define CLEAR_SCREEN "cls"
 #else
-#include <unistd.h>
-#define CLEAR_SCREEN "clear"
+  #include <unistd.h>
+  #define CLEAR_SCREEN "clear"
 #endif
 
 #define ROWS 30
@@ -27,7 +27,7 @@
 #define NUM_GENERATIONS 50
 // the following represents the percentage of probability
 // any cell has to be alive when it is first created
-#define INITIAL_LIFE_FACTOR 2
+#define INITIAL_LIFE_FACTOR 13
 
 
 enum Statuses { alive, dead };
@@ -183,10 +183,10 @@ bool population_dead(const struct Cell *board) {
 
 
 void SLEEP(unsigned int seconds) {
-#ifdef WINDOWS
-  // the argument is in milliseconds
-  Sleep(seconds * 1000);
-#else
-  sleep(seconds);
-#endif
+  #ifdef WINDOWS
+    // the argument is in milliseconds
+    Sleep(seconds * 1000);
+  #else
+    sleep(seconds);
+  #endif
 }
